@@ -1,0 +1,135 @@
+.navbar-theme {
+  background: $theme;
+  .navbar-brand {
+    color: #eee;
+    &:hover,
+    &:focus {
+      color: #fff;
+    }
+  }
+  .navbar-nav {
+    > li {
+      > a {
+        color: #eee;
+        &:hover,
+        &:focus {
+          color: #fff;
+          background: $theme;
+        }
+      }
+    }
+  }
+}
+
+.navbar-default.navbar-pixelagil {
+  background: #fff;
+  margin-bottom: 0;
+  border-radius: 0;
+  z-index: 3;
+  position: relative;
+  .navbar-brand {
+      padding: 10px;
+      > img{
+        max-height: 40px !important;
+      }
+  }
+  .navbar-nav {
+    > li {
+      > a {
+        color: $dark-theme;
+        //font-size: 14px;
+        font-weight: 400;
+        text-transform: uppercase;
+        &:hover,
+        &:focus {
+        }
+      }
+    }
+  }
+}
+
+.ui-hero {
+    width: 100%;
+    position: relative;
+
+    &.section{
+        .header-1{
+            font-size: 2.5em;
+
+            @media (max-width: 360px) { 
+                font-size: 1.8em;
+            }
+        }
+    }
+    .header-1,
+    .header-2{
+        color: $dark-theme;
+        font-weight: bold;
+        text-transform: uppercase;
+        
+    }
+    .header-1{
+        font-size: 3em;
+        margin-bottom: -5px;
+
+        @media (max-width: 360px) { 
+            font-size: 1.5em;
+        }
+    }
+    .header-2{
+        font-size: 3.5em;
+        margin:0;
+
+        @media (max-width: 360px) { 
+            font-size: 2.3em;
+        }
+    }
+    .hero-padding {
+        padding: 60px 0;
+    }
+    .hero-content {
+        p{
+            margin: 15px 0;
+        }
+    }
+    .cta-group{
+        .btn-cta{
+            margin-left: 10px;
+        }
+        .btn.btn-theme.border{
+            color: $theme!important;
+            &:hover,
+            &:focus{
+                color: #fff!important;
+            }
+        }
+
+        @media (max-width: 360px) { 
+            .btn{
+                font-size: 12px!important;
+                padding: 10px 15px;
+            }
+        }
+    }
+    .hero-figure{
+        position: relative;
+    }
+
+    .fig01{
+        position: absolute;
+        top: -50px;
+        right: 0;
+        max-width: 700px;
+        z-index: -1;
+        
+    }
+    .fig02{
+        max-width: 70%;
+        height: auto;
+        margin: 20px auto;
+        display: block;
+        position: relative;
+        z-index: 1;
+        animation: floating 3s infinite 0s ease-in-out;
+    }
+}

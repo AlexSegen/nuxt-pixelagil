@@ -1,0 +1,74 @@
+/*--------------------------------------
+  [PRICING]
+  --------------------------------------*/
+
+  .row-pricing {
+
+    .pricing-box {
+  max-height: 4000px;
+  margin: 10px auto;
+  background: #fff;
+  border-radius: 10px;
+  border-top: 4px solid #01c99e;
+  border-bottom: 4px solid #01c99e;
+
+  .pricing-header {
+    text-align: center;
+    background: $theme02;
+    color: #fff;
+
+    h2 {
+      margin-top: 0;
+      margin-bottom: 3px;
+      padding-top: 5px;
+      padding-bottom: 5px;
+    }
+
+    .subheader {
+      margin: 0;
+    }
+
+  }
+
+  .pricing-body {
+    padding: 10px;
+  }
+
+  .pricing-amount {
+    text-align: center;
+    h1 {
+      font-weight: 900;
+      font-size: 4.5rem;
+      margin: 2px;
+      .sub {
+        font-weight: 400;
+        opacity: 0.7;
+        font-size: 14px;
+        margin-top: 20px;
+        position: absolute;
+      }
+    }
+  }
+
+  .pricing-features {
+    padding: 5px 20px;
+    margin-bottom: 20px;
+    .list > li {
+      font-weight: 200;
+      color: #999;
+      padding: 5px 0;
+      font-size: 0.9rem;
+      .material-icons {
+        color: $theme02;
+        margin-right: 10px;
+        font-size: 0.9rem;
+      }
+    }
+  }
+
+  .cta {
+    margin-bottom: 20px;
+  }
+
+}
+}

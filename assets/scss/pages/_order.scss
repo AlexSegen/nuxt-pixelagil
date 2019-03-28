@@ -1,0 +1,22 @@
+.services-area{
+    .list-group{
+        box-shadow: none;
+    }
+    .list-group-item-heading{
+        color: $dark-theme;
+        font-size: 1.1em;
+        font-weight: 600;
+    }
+    .list-group-item{
+        border: none;
+    }
+}
+
+.total-price{
+    color: $dark-theme;
+    font-weight: 600;
+}
+
+.order-form{
+    margin-bottom: 0;
+}

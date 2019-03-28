@@ -1,0 +1,40 @@
+/*----------------------------------------------------------------------
+
+        MASTER STYLESHEET
+
+        Project:        Pixelagil Vue Cli Boilerplate
+        Version:        Alpha 0.0.5
+        Author:         Pixelagil
+        Primary use:    Corporate, Business Themes.
+        Email:                  pixelagil@gmail.com
+        Follow:                 http://www.twitter.com/pixelagil
+        Like:                   http://www.facebook.com/pixelagil
+        Website:                http://www.pixelagil.com
+
+-----------------------------------------------------------------------*/
+@import 'config/variables',
+        'addons/bootstrap-sass/assets/stylesheets/bootstrap',
+        'config/core',
+        'modules/buttons',
+        'modules/text-theme',
+        'modules/bg-theme',
+        'modules/spacing',
+        'modules/animations',
+        'modules/pricing',
+        'modules/loader',
+        'pages/home',
+        'pages/web',
+        'pages/integrations',
+        'pages/portfolio',
+        'pages/order',
+        'pages/contact',
+        'layout/header',
+        'layout/footer',
+        'layout/sidebar',
+        'global/typography',
+        'global/base',
+        'global/mixins',
+        'global/responsive';
+
+
+

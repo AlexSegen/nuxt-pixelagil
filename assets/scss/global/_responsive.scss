@@ -1,0 +1,34 @@
+/*--------------------------------------
+  [RESPONSIVE QUERY]
+--------------------------------------*/
+@media (min-width: 1200px) {
+
+
+}
+
+@media (max-width: 992px) {
+
+  .ui-hero .fig01 {
+    opacity: .2;
+  } 
+}
+
+@media (max-width: 768px) { 
+
+}
+
+
+@media (max-width: 320px) { 
+  .btn{
+    padding: 10px 15px;
+  }
+  body{
+    font-size: .8em;
+  }
+  .ui-hero{
+    .btn{
+      font-size: 12px;
+    }
+   
+  }
+}

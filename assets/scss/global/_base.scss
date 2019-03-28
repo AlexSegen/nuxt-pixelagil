@@ -1,0 +1,85 @@
+/*--------------------------------------
+	[GENERAL]
+  --------------------------------------*/
+  html { 
+   font-size: $font-size;
+ }
+ body {
+  font-family: $font-family;
+  color: $font-color;
+  font-size: 1em;
+  background: $background;
+  background-size: 100%;
+  @media(max-width:1024px){
+    background: #fff;
+  }
+}
+h1,h2,h3,h4,h5,h6 {
+  //font-weight: bold;
+	font-family:$font-header;
+}
+.clearfix {
+  clear: both;
+}
+.bold {
+  font-weight: bold;
+}
+.text-white {
+  color: #fff;
+}
+section {
+  position: relative;
+}
+
+.section-title{
+  font-weight: normal;
+  color: $dark-theme;
+}
+#app{
+
+}
+.form-group label, .form-group .form-label {
+  opacity: 1;
+  font-weight: 600;
+  color: $dark-theme;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.fig-moon{
+  position: absolute;
+  top: 0px;
+  left: 0;
+  max-width: 100%;
+  z-index: -1;
+}
+
+.fig-curve{
+  position: absolute;
+  top: 0px;
+  right: 0;
+  max-width: 280px;
+  z-index: -1;
+  &.satel{
+    top: unset;
+    bottom: 0;
+  }
+  &.bottom{
+    top: unset;
+    bottom: 0;
+    left: 0;
+    right: unset;
+    transform: rotate(-180deg);
+  }
+}
+
+.ui-divider {
+  position: relative;
+  width: 50px;
+  border-bottom: 4px solid $theme02;
+  margin: 20px auto;
+  border-radius: 3px;
+  &.left{
+    margin-left: 0!important;
+  }
+}
