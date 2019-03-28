@@ -1,12 +1,12 @@
 const config =  {
-    app: process.env.VUE_APP_NAME,
-    api: process.env.VUE_APP_ROOT_API,
+    app: process.env.NUXT_ENV_NAME,
+    api: process.env.NUXT_ENV_ROOT_API,
     contact: {
-        email: process.env.VUE_APP_EMAIL,
-        phone: process.env.VUE_APP_PHONE,
-        skype: process.env.VUE_APP_SKYPE
+        email: process.env.NUXT_ENV_EMAIL,
+        phone: process.env.NUXT_ENV_PHONE,
+        skype: process.env.NUXT_ENV_SKYPE
     },
-    panel: process.env.VUE_APP_PANEL
+    panel: process.env.NUXT_ENV_PANEL
 }
 
 export default config
