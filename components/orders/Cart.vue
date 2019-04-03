@@ -1,5 +1,5 @@
 <template>
-  <form class="pmd-card pt-20" id="order" v-on:submit.prevent="checkout">
+  <form class="pmd-card pt-20" id="order" v-on:submit.prevent="confirmOrder">
     <div class="proloader" v-show="checkoutStatus == 'loading'">
       <div class="looping-rhombuses-spinner">
         <div class="rhombus"></div>
@@ -128,7 +128,10 @@ export default {
       })
     },
     methods: {
-        ...mapActions('cart', ['checkout','emptyCart', 'removeProduct'])
+        ...mapActions('cart', ['checkout','emptyCart', 'removeProduct']),
+        confirmOrder() {
+          this.checkout(this.buyer); 
+        }
     }
 }
 </script>

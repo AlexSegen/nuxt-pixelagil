@@ -84,10 +84,10 @@ export const getters = {
     emptyCart({commit}) {
       commit('emptyCart')
     },
-    checkout({state,getters, commit}) {
+    checkout({state,getters, commit}, buyer) {
       commit('setCheckoutStatus', 'loading')
       let data = {
-        buyer: state.buyer,
+        buyer: buyer,
         cartItems: state.items,
         cartTotal: getters.cartTotal,
         notify: true //Notificar por email
