@@ -12,8 +12,8 @@
                     <li><router-link to="/integraciones">Integraciones</router-link></li>
                     <li><router-link to="/grafico">Diseño Gráfico</router-link></li>
                     <li><router-link to="/portafolio">Mis Trabajos</router-link></li>
-                    <li><router-link to="/contactar">Contacto</router-link></li>
-                    <li><router-link to="/cotizar">Cotización</router-link></li>
+                    <li><router-link to="/contacto">Contacto</router-link></li>
+                    <li><router-link to="/orden">Cotización</router-link></li>
                 </ul>
             </div>
         </div>

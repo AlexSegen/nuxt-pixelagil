@@ -1,4 +1,4 @@
-import $http from "@/plugins/api.config";
+import $http from "@/services/api.config";
 
 let RESOURCE_NAME = "/leads/set";
 

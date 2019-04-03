@@ -107,6 +107,10 @@ import Hero from "~/components/home/Hero.vue";
 export default {
   components: {
     Hero
+  },
+  created() {
+    console.log('hola')
+    console.log(process.env.baseUrl)
   }
 }
 </script>

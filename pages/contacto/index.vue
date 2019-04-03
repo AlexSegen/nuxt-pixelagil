@@ -66,8 +66,10 @@
 	</div>
 </template>
 <script>
-import HeroSection from "@/components/shared/HeroSection.vue";
+import config from '@/config'
 import MyForm from "@/components/contact/MyForm.vue";
+import HeroSection from "@/components/shared/HeroSection.vue";
+
 export default {
   components: {
     MyForm,
@@ -75,11 +77,11 @@ export default {
   },
   data() {
     return {
-      email: process.env.VUE_APP_EMAIL,
-      phone: process.env.VUE_APP_PHONE,
-      skype: process.env.VUE_APP_SKYPE,
-      heroTitle: "Contáctame",
-      heroSubtitle: "¿Tienes alguna duda? Escríbeme"
+		email: config.contact.email,
+		phone: config.contact.phone,
+		skype: config.contact.skype,
+		heroTitle: "Contáctame",
+		heroSubtitle: "¿Tienes alguna duda? Escríbeme"
     };
   }
 };

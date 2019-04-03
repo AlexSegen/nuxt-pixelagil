@@ -1,5 +1,5 @@
 import config from '@/config'
-import $http from "@/plugins/api.config";
+import $http from "@/services/api.config";
 import utils from '@/helpers/utils'
 let RESOURCE_NAME = "/mailer/send";
 
