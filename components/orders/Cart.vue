@@ -103,7 +103,7 @@
     </div>
 
     <p class="text-center mt-20">Si tienes alguna duda, por favor
-      <router-link :to="{ name: 'contact' }">escríbeme</router-link>
+      <router-link :to="{ name: 'contacto' }">escríbeme</router-link>
     </p>
   </form>
 </template>

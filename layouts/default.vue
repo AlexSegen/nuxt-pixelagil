@@ -20,8 +20,8 @@ export default {
 </script>
 <style>
 .well {
-  border: 1px solid transparent !important;
-  -webkit-box-shadow: 0 10px 20px 0px rgba(0, 0, 0, 0.1)!important;
-  box-shadow: 0 10px 20px 0px rgba(0, 0, 0, 0.1)!important;
+  border: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
 </style>

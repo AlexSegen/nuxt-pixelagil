@@ -70,7 +70,7 @@
 			</div>
 		</section>
 
-		<!-- <my-pricing/> -->
+		<my-pricing/>
 
 
 		<section class="mt-40 pt-10 pb-30 section-bg031">
@@ -146,11 +146,11 @@
 
 <script>
 import HeroSection from '@/components/shared/HeroSection.vue'
-//import MyPricing from '@/components/web/MyPricing.vue'
+import MyPricing from '@/components/web/MyPricing.vue'
 export default {
     name:'WebDesign',
     components: {
-        HeroSection
+        HeroSection, MyPricing
 	},
 	data(){
 		return{

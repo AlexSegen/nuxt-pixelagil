@@ -23,6 +23,7 @@ module.exports = {
    */
   css: [
     'normalize.css/normalize.css',
+    'bootstrap-vue/dist/bootstrap-vue.css',
     'fancybox/dist/css/jquery.fancybox.css',
     'font-awesome/css/font-awesome.css',
     '@/assets/scss/app.scss'
@@ -31,7 +32,7 @@ module.exports = {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: ['~/plugins/vue-lazy'],
+  plugins: ['~/plugins/vue-lazy', '~/plugins/vue-bootstrap'],
 
   /*
    ** Nuxt.js modules

@@ -20,6 +20,7 @@
 				<div class="col-md-8">
 					<div class="services-area">
 						<h3 class="title-area">Servicios disponibles</h3>
+
 						<div class="card1">
 							<div class="pmd-tabs pmd-tabs-bg">
 								<ul class="nav nav-tabs nav-justified" role="tablist">
@@ -53,13 +54,13 @@
 												</div>
 												<div class="panel1 panel-default"> 
 													<div class="panel-heading" role="tab" id="headingTwo">
-														<h4 class="panel-title"> 
-															<a data-toggle="collapse" data-parent="#accordion7" :href="'#web_'+service.id" aria-expanded="false" aria-controls="collapseTwo7"  data-expandable="false"> Ver detalles <i class="fa fa-plus-circle text-theme"></i></a>
+														<h4 class="panel-title">
+														<a v-b-toggle="'web_'+service.id" >Ver detalles <i class="fa fa-plus-circle text-theme"></i></a>
 														</h4>
 													</div>
-													<div :id="'web_'+service.id" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+													<b-collapse :id="'web_'+service.id">
 														<div class="panel-body" v-html="service.description"></div>
-													</div>
+													</b-collapse>
 												</div>
 											</li>
 										</ul>
@@ -79,13 +80,13 @@
 												</div>
 												<div class="panel1 panel-default"> 
 													<div class="panel-heading" role="tab" id="headingTwo">
-														<h4 class="panel-title"> 
-															<a data-toggle="collapse" data-parent="#accordion7" :href="'#inte_'+service.id" aria-expanded="false" aria-controls="collapseTwo7"  data-expandable="false"> Ver detalles <i class="fa fa-plus-circle text-theme"></i></a>
+														<h4 class="panel-title">
+															<a v-b-toggle="'inte_'+service.id" >Ver detalles <i class="fa fa-plus-circle text-theme"></i></a>
 														</h4>
 													</div>
-													<div :id="'inte_'+service.id" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+													<b-collapse :id="'inte_'+service.id">
 														<div class="panel-body" v-html="service.description"></div>
-													</div>
+													</b-collapse>
 												</div>
 											</li>
 										</ul>
@@ -105,13 +106,13 @@
 												</div>
 												<div class="panel1 panel-default"> 
 													<div class="panel-heading" role="tab" id="headingTwo">
-														<h4 class="panel-title"> 
-															<a data-toggle="collapse" data-parent="#accordion7" :href="'#gra_'+service.id" aria-expanded="false" aria-controls="collapseTwo7"  data-expandable="false"> Ver detalles <i class="fa fa-plus-circle text-theme"></i></a>
+														<h4 class="panel-title">
+															<a v-b-toggle="'gra_'+service.id" >Ver detalles <i class="fa fa-plus-circle text-theme"></i></a>
 														</h4>
 													</div>
-													<div :id="'gra_'+service.id" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+													<b-collapse :id="'gra_'+service.id">
 														<div class="panel-body" v-html="service.description"></div>
-													</div>
+													</b-collapse>
 												</div>
 											</li>
 										</ul>
@@ -131,13 +132,13 @@
 												</div>
 												<div class="panel1 panel-default"> 
 													<div class="panel-heading" role="tab" id="headingTwo">
-														<h4 class="panel-title"> 
-															<a data-toggle="collapse" data-parent="#accordion7" :href="'#oth_'+service.id" aria-expanded="false" aria-controls="collapseTwo7"  data-expandable="false"> Ver detalles <i class="fa fa-plus-circle text-theme"></i></a>
+														<h4 class="panel-title">
+															<a v-b-toggle="'oth_'+service.id" >Ver detalles <i class="fa fa-plus-circle text-theme"></i></a>
 														</h4>
 													</div>
-													<div :id="'oth_'+service.id" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+													<b-collapse :id="'oth_'+service.id">
 														<div class="panel-body" v-html="service.description"></div>
-													</div>
+													</b-collapse>
 												</div>
 											</li>
 										</ul>
