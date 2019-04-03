@@ -40,7 +40,9 @@ module.exports = {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     // Doc: https://bootstrap-vue.js.org/docs/
-    'bootstrap-vue/nuxt'
+    'bootstrap-vue/nuxt',
+    // Doc: https://github.com/nuxt-community/dotenv-module
+    ['@nuxtjs/dotenv', { filename: (process.env.NODE_ENV === 'production') ? '.env.production' : '.env.development' }],
   ],
   /*
    ** Axios module configuration

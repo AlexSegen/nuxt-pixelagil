@@ -1,13 +1,13 @@
 module.exports = {
-  app: 'Pixelagil',
-  slogan: 'Desarrolla tus ideas',
+  app: process.env.VUE_APP_NAME,
+  slogan: process.env.VUE_APP_SLOGAN,
   contact: {
-    email: 'pixelagilweb@gmail.com',
-    phone: '+56 935737207',
-    skype: 'ajvivas86'
+    email: process.env.VUE_APP_EMAIL,
+    phone: process.env.VUE_APP_PHONE,
+    skype: process.env.VUE_APP_SKYPE
   },
-  apikey: '2CRb9REJC40NZyZdu9gPB8qGAkccSPepHg4BflWx',
-  firebase: 'https://webapp-73cea.firebaseio.com/',
-  api: 'http://18.219.238.40:5100/api/',
-  panel: 'http://pixelagil-dev.paservices.website/'
+  apikey: process.env.VUE_APP_APIKEY,
+  firebase: process.env.VUE_APP_DATABASE_URL,
+  api: process.env.VUE_APP_ROOT_API,
+  panel: process.env.VUE_APP_PANEL
 }
