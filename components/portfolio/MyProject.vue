@@ -4,22 +4,22 @@
 		<template v-if="loading">
 			<div class="col-md-3 col-sm-6 col-xs-12">
 				<div class="item-portfolio" style="height: 280px; padding: 10px;">
-					<vcl-instagram></vcl-instagram>
+					<vcl-twitch></vcl-twitch>
 				</div>
 			</div>
 			<div class="col-md-3 col-sm-6 col-xs-12">
 				<div class="item-portfolio" style="height: 280px; padding: 10px;">
-					<vcl-instagram></vcl-instagram>
+					<vcl-twitch></vcl-twitch>
 				</div>
 			</div>
 			<div class="col-md-3 col-sm-6 col-xs-12">
 				<div class="item-portfolio" style="height: 280px; padding: 10px;">
-					<vcl-instagram></vcl-instagram>
+					<vcl-twitch></vcl-twitch>
 				</div>
 			</div>
 			<div class="col-md-3 col-sm-6 col-xs-12">
 				<div class="item-portfolio" style="height: 280px; padding: 10px;">
-					<vcl-instagram></vcl-instagram>
+					<vcl-twitch></vcl-twitch>
 				</div>
 			</div>
 		</template>
@@ -56,13 +56,13 @@
 
 <script>
 import fancybox from 'fancybox'
-import { VclInstagram } from 'vue-content-loading';
+import { VclTwitch } from 'vue-content-loading';
 import portfolioServices from '@/services/portfolio.services'
 
 export default {
 	name: 'projects',
 	components: {
-	VclInstagram
+	VclTwitch
 	},
 	created(){
 		this.getProjects();
