@@ -24,7 +24,7 @@
 					</div>
 
 
-					<div class="row row-design mt-40">
+					<div class="row row-design mt-40" v-show="!loadingPage">
 
 						<div class="col-md-12">
 							<h3 class="text-dark bold">Servicios de Diseño</h3>

@@ -24,7 +24,7 @@
 					</div>
 
 
-					<div class="row row-integrations mt-40">
+					<div class="row row-integrations mt-40" v-show="!loadingPage">
 
 						<div class="col-md-12">
 							<h3 class="text-dark bold">Integraciones</h3>

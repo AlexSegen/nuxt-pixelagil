@@ -37,9 +37,9 @@
 			</div>
 		</section>
 
-		<my-pricing v-show="loadingPage"/>
+		<my-pricing v-show="!loadingPage"/>
 
-		<section v-show="loadingPage" class="mt-40 pt-10 pb-30 section-bg031">
+		<section v-show="!loadingPage" class="mt-40 pt-10 pb-30 section-bg031">
 			<div class="container">
 
 				<h2 class="text-center text-dark bold mb-40">¿CÓMO SERÁ TU PROYECTO FINAL?</h2>
