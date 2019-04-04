@@ -10,7 +10,7 @@
 					<div class="row">
 
 						<div class="col-md-8 col-md-offset-2">
-							<p>Ponte en contacto y deja un mensaje, sin ningún compromiso. Tendrás una respuesta lo antes posible. {{ dato }}</p>
+							<p>Ponte en contacto y deja un mensaje, sin ningún compromiso. Tendrás una respuesta lo antes posible.</p>
 						</div>
 
 						<div class="col-md-8 col-md-offset-2 text-center mt-20">

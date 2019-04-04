@@ -17,7 +17,7 @@
             </nuxt-link>
           </div>
           <div class="col-sm-4">
-            <nuxt-link :to="{ name: 'integrations' }" class="ui-service">
+            <nuxt-link :to="{ name: 'integraciones' }" class="ui-service">
               <figure>
                 <img src="@/assets/img/fig-integrations.png" alt="">
               </figure>
@@ -29,7 +29,7 @@
             </nuxt-link>
           </div>
           <div class="col-sm-4">
-            <nuxt-link :to="{ name: 'graphic' }" class="ui-service">
+            <nuxt-link :to="{ name: 'grafico' }" class="ui-service">
               <figure>
                 <img src="@/assets/img/fig-graphic.png" alt="">
               </figure>
