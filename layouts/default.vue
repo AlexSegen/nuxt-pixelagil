@@ -1,15 +1,16 @@
 <template>
   <div>
     <my-header/>
-      <nuxt />
+      <nuxt :page="page" />
     <my-footer/>
   </div>
 </template>
 <script>
+import { mapActions } from 'vuex'
+import api from "@/services/pages.services";
 import MyHeader from "~/components/shared/MyHeader.vue";
 import MyFooter from "~/components/shared/MyFooter.vue";
 
-import api from "@/services/pages.services";
 
 export default {
   name: "Layout",
@@ -22,13 +23,16 @@ export default {
       page: {}
     }
   },
-  created() {
-    console.log(this.$route.name)
+  watch: {
+    '$route' (to, from) {
+      this.getPage(this.$route.name)
+    }
+  },
+  mounted() {
+    this.getPage(this.$route.name)
   },
   methods: {
-    getPageInfo() {
-      api.getByRouteName()
-    }
+    ...mapActions('pages', ['getPage'])
   }
 };
 </script>

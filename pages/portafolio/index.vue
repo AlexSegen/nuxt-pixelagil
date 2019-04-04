@@ -1,7 +1,7 @@
 <template>
 	<div class="wrapper">
 
-		<hero-section :heroTitle="heroTitle" :heroSubtitle="heroSubtitle"/>
+		<hero-section :heroTitle="pageInfo.title" :heroSubtitle="pageInfo.description"/>
 
 		<section>
 			<div class="container-fluid">
@@ -17,6 +17,7 @@
 </template>
 
 <script>
+import {mapGetters} from 'vuex'
 import MyProject from '@/components/portfolio/MyProject.vue'
 import HeroSection from '@/components/shared/HeroSection.vue'
 export default {
@@ -41,6 +42,9 @@ export default {
 			heroSubtitle:'Lo que se muestra en el siguiente portafolio son algunos de los trabajos mas recientes. Mis soluciones web te permiten mostrar tu negocio de una manera profesional y de calidad.'
 		}
 	},
+	computed: {
+		...mapGetters('pages', ['pageInfo'])
+	}
 }
 </script>
 

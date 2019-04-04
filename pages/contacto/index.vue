@@ -1,7 +1,7 @@
 <template>
 	<div class="contacto">
 
-		<hero-section :heroTitle="heroTitle" :heroSubtitle="heroSubtitle" :hideit="true"/>
+		<hero-section :heroTitle="pageInfo.title" :heroSubtitle="pageInfo.description" :hideit="true"/>
 
 		<section>
 			<div class="container">
@@ -9,8 +9,7 @@
 
 					<div class="row">
 
-						<div class="col-md-8 col-md-offset-2">
-							<p>Ponte en contacto y deja un mensaje, sin ningún compromiso. Tendrás una respuesta lo antes posible.</p>
+						<div class="col-md-8 col-md-offset-2" v-html="pageInfo.content">
 						</div>
 
 						<div class="col-md-8 col-md-offset-2 text-center mt-20">
@@ -67,6 +66,7 @@
 </template>
 <script>
 import config from '@/config'
+import { mapGetters } from 'vuex'
 import MyForm from "@/components/contact/MyForm.vue";
 import HeroSection from "@/components/shared/HeroSection.vue";
 
@@ -83,6 +83,9 @@ export default {
 		heroTitle: "Contáctame",
 		heroSubtitle: "¿Tienes alguna duda? Escríbeme"
     };
-  }
+  },
+	computed: {
+		...mapGetters('pages', ['pageInfo'])
+	}
 };
 </script>

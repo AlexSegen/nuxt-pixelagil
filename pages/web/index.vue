@@ -1,7 +1,7 @@
 <template>
 	<div class="web">
 		
-		<hero-section :heroTitle="heroTitle" :heroSubtitle="heroSubtitle"/>
+		<hero-section :heroTitle="pageInfo.title" :heroSubtitle="pageInfo.description"/>
 
 		<section class="">
 			<div class="container">
@@ -14,7 +14,7 @@
 
 							<div class="gm-divider second left"></div>
 
-							<p class="text-justify">
+							<!-- <p class="text-justify">
 								¿Estás comenzando un nuevo negocio y necesitas un <b>sitio web profesional?</b> Bueno, no busques más, en <b>{{siteName}}</b> tengo la solución para ti. Tu <b>sitio web</b> será la representación de tu negocio, por eso es importante que el trabajo se haga con mucho profesionalismo. Incluso, puedo realizar mantenimiento a su sitio web actual para que puedas centrarte en el crecimiento del mismo.
 							</p>
 
@@ -49,7 +49,8 @@
 									Optimización para buscadores (SEO)
 								</li>
 							</ul>
-
+ -->
+ 							<div v-html="pageInfo.content"></div>
 							<a href="#pricing" class="btn btn-theme pmd-ripple-effect btn-lg smoothScroll">Ver Planes</a>
 
 						</div>
@@ -145,19 +146,35 @@
 </template>
 
 <script>
-import HeroSection from '@/components/shared/HeroSection.vue'
+import { mapGetters } from 'vuex'
 import MyPricing from '@/components/web/MyPricing.vue'
+import HeroSection from '@/components/shared/HeroSection.vue'
+
 export default {
-    name:'WebDesign',
+	name:'WebDesign',
+	metaInfo: {
+	  title: 'Diseño Web '  +  process.env.VUE_APP_NAME,
+	  	meta: [
+			{name: 'description', content: '¿Necesitas tener tu sitio web? Con mis habiliades puedo crear un espacio digital para tu organización optimizado para cualquier plataforma'},
+			{content:"Pixelagil · Diseño Web", property:"og:title"},
+			{content: "¿Necesitas tener tu sitio web? Con mis habiliades puedo crear un espacio digital para tu organización optimizado para cualquier plataforma", property: "og:description" }
+		],
+		links: [
+			{rel: 'canonical', href: 'https://pixelagil.com/web'}
+		]
+    },
     components: {
         HeroSection, MyPricing
 	},
 	data(){
 		return{
+			siteName: process.env.VUE_APP_NAME,
 			heroTitle:'Diseño Web',
 			heroSubtitle:'¿Necesitas tu propio sitio web?'
 		}
 	},
-	props:['siteName']
+	computed: {
+		...mapGetters('pages', ['pageInfo'])
+	}
 }
 </script>

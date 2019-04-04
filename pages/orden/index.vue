@@ -1,21 +1,21 @@
 <template>
 	<div class="ordenar">
 
-		<hero-section :heroTitle="heroTitle" :heroSubtitle="heroSubtitle"/>
+		<hero-section :heroTitle="pageInfo.title" :heroSubtitle="pageInfo.description"/>
 
 		<div class="container">
 
             <article class="well page-content">
            
 			<div class="row">
-				<div class="col-md-12 text-justify">
+				<div class="col-md-12 text-justify" v-html="pageInfo.content">
       
-                        <p>
+<!--                         <p>
                             Para obtener alguno de mis servicios, por favor selecciona el que necesitas, y luego presiona el botón <strong>Agregar</strong> y <strong>repite</strong> (si aplica) como necesites. Una vez terminada tu selección, presiona el botón <strong>Cotizar</strong> para enviarme tu requerimiento. Una vez recibido, te contactaré lo antes posible.
                         </p>
-                        <p>Recuerda leer los <router-link :to="{ name:'terms' }">Términos de Servicio</router-link> antes de adquirir alguno.</p>
+                        <p>Recuerda leer los <router-link :to="{ name:'terms' }">Términos de Servicio</router-link> antes de adquirir alguno.</p> -->
 
-                </div>
+				</div>
 
 				<div class="col-md-8">
 					<div class="services-area">
@@ -215,7 +215,8 @@ export default {
 		designCategory: 'designCategory',
 		integrationCategory: 'integrationCategory',
 		otherCategory: 'otherCategory',
-      }),
+			}),
+		...mapGetters('pages', ['pageInfo']),
 		numCartItems() {
 			return this.cartItems.length;
 		},

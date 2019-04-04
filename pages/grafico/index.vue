@@ -1,7 +1,7 @@
 <template>
 	<div class="graphics">
 
-		<hero-section :heroTitle="heroTitle" :heroSubtitle="heroSubtitle"/>
+		<hero-section :heroTitle="pageInfo.title" :heroSubtitle="pageInfo.description"/>
 
 		<section>
 
@@ -9,9 +9,9 @@
 				<article class="well page-content">
 
 					<div class="row">
-						<div class="col-md-6 row-design text-justify">
+						<div class="col-md-6 row-design text-justify" v-html="pageInfo.content">
 
-							<p>
+<!-- 							<p>
 								Proceso impecable&nbsp;para <strong>diseño de&nbsp;logos </strong>atractivos y otros productos con  100% de satisfacción garantizada. Trabajo en estrecha coordinación con el diseño gráfico y diseño web.
 							</p>
 
@@ -21,7 +21,7 @@
 
 							<p>
 								Puedo btener tu aprobación sin ninguna revisión o reelaboración. Sin embargo, doy la bienvenida a cada sugerencia constructiva para mejorar la calidad y finalmente satisfacer las necesidades corporativas de mis clientes.
-							</p>
+							</p> -->
 
 						</div>
 
@@ -97,6 +97,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import HeroSection from '@/components/shared/HeroSection.vue'
 export default {
 	name:'GraphicDesign',
@@ -119,6 +120,9 @@ export default {
 			heroTitle:'Diseño Gráfico',
 			heroSubtitle:'Contenido gráfico para tu <span>marca corporativa</span>'
 		}
+	},
+	computed: {
+		...mapGetters('pages', ['pageInfo'])
 	}
 }
 </script>

@@ -1,7 +1,7 @@
 <template>
 	<div class="integrations">
 
-	<hero-section :heroTitle="heroTitle" :heroSubtitle="heroSubtitle"/>
+	<hero-section :heroTitle="pageInfo.title" :heroSubtitle="pageInfo.description"/>
 
 		<section>
 
@@ -10,8 +10,8 @@
 
 					<div class="row">
 						<div class="col-md-6 row-design text-justify">
-
-							<p>
+							<div v-html="pageInfo.content"></div>
+<!-- 							<p>
 								Te ofrezco la posibilidad de hacer crecer tu negocio virtual. Podrás integrar diferentes soluciones en tu sitio web. Agrega un foro, una pasarela de pago, un blog, una galería para mostrar tus trabajos, entre otros.
 							</p>
 
@@ -25,7 +25,7 @@
 								<li><i class="fa fa-minus text-theme02"></i> Adaptación del Footer.</li>
 								<li><i class="fa fa-minus text-theme02"></i> Match de colores y fuentes.</li>
 								<li><i class="fa fa-minus text-theme02"></i> Ajustes en detalles.</li>
-							</ul>
+							</ul> -->
 
 						</div>
 
@@ -173,6 +173,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import HeroSection from '@/components/shared/HeroSection.vue'
 export default {
 	name:'Integrations',
@@ -195,6 +196,9 @@ export default {
 			heroTitle:'Integraciones',
 			heroSubtitle:'Agrega nuevas características a tu negocio'
 		}
+	},
+	computed: {
+		...mapGetters('pages', ['pageInfo'])
 	}
 }
 </script>
