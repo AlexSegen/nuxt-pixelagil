@@ -13,46 +13,12 @@
 						<div class="col-md-6">
 
 							<div class="gm-divider second left"></div>
+							
+							<vcl-list v-if="loadingPage"></vcl-list>
 
-							<!-- <p class="text-justify">
-								¿Estás comenzando un nuevo negocio y necesitas un <b>sitio web profesional?</b> Bueno, no busques más, en <b>{{siteName}}</b> tengo la solución para ti. Tu <b>sitio web</b> será la representación de tu negocio, por eso es importante que el trabajo se haga con mucho profesionalismo. Incluso, puedo realizar mantenimiento a su sitio web actual para que puedas centrarte en el crecimiento del mismo.
-							</p>
+ 							<div v-else v-html="pageInfo.content"></div>
 
-							<p class="text-justify">
-								Puedo proporcionarle diseños <b>elegantes</b> e <b>innovadores</b>, y con los <b>servicios de SEO</b> podrá generar más clientes potenciales.
-							</p>
-
-							<ul class="list-unstyled mb-20">
-								<p class="text-theme bold">Experiencia garantizada en Diseño Web, Interfaz de Usuario y Experiencia de Usuario.</p>
-								<li>
-									<i class="fa fa-minus text-theme02"></i> 
-									Diseño y desarrollo de sitios web
-								</li>
-								<li>
-									<i class="fa fa-minus text-theme02"></i> 
-									Administración de sitios web
-								</li>
-								<li>
-									<i class="fa fa-minus text-theme02"></i> 
-									Diseño web responsive (para dispositivos móviles
-								</li>
-								<li>
-									<i class="fa fa-minus text-theme02"></i> 
-									Diseño de sitios en WordPress
-								</li>
-								<li>
-									<i class="fa fa-minus text-theme02"></i> 
-									Diseño de Blogs
-								</li>
-								<li>
-									<i class="fa fa-minus text-theme02"></i> 
-									Optimización para buscadores (SEO)
-								</li>
-							</ul>
- -->
- 							<div v-html="pageInfo.content"></div>
 							<a href="#pricing" class="btn btn-theme pmd-ripple-effect btn-lg smoothScroll">Ver Planes</a>
-
 						</div>
 
 						<div class="col-md-6">
@@ -71,10 +37,9 @@
 			</div>
 		</section>
 
-		<my-pricing/>
+		<my-pricing v-show="loadingPage"/>
 
-
-		<section class="mt-40 pt-10 pb-30 section-bg031">
+		<section v-show="loadingPage" class="mt-40 pt-10 pb-30 section-bg031">
 			<div class="container">
 
 				<h2 class="text-center text-dark bold mb-40">¿CÓMO SERÁ TU PROYECTO FINAL?</h2>
@@ -147,6 +112,7 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import { VclList } from 'vue-content-loading';
 import MyPricing from '@/components/web/MyPricing.vue'
 import HeroSection from '@/components/shared/HeroSection.vue'
 
@@ -164,17 +130,17 @@ export default {
 		]
     },
     components: {
-        HeroSection, MyPricing
+        HeroSection, MyPricing, VclList
 	},
 	data(){
-		return{
+		return {
 			siteName: process.env.VUE_APP_NAME,
 			heroTitle:'Diseño Web',
 			heroSubtitle:'¿Necesitas tu propio sitio web?'
 		}
 	},
 	computed: {
-		...mapGetters('pages', ['pageInfo'])
+		...mapGetters('pages', ['pageInfo','loadingPage'])
 	}
 }
 </script>

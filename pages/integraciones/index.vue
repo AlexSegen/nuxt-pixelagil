@@ -10,23 +10,8 @@
 
 					<div class="row">
 						<div class="col-md-6 row-design text-justify">
-							<div v-html="pageInfo.content"></div>
-<!-- 							<p>
-								Te ofrezco la posibilidad de hacer crecer tu negocio virtual. Podrás integrar diferentes soluciones en tu sitio web. Agrega un foro, una pasarela de pago, un blog, una galería para mostrar tus trabajos, entre otros.
-							</p>
-
-							<p>
-								Puedo integrar las plataformas más conocidas <strong>manteniendo los estilos de tu sitio web</strong> tales como, esquema de colores, tipografías, íconos, entre otros.
-							</p>
-
-							<h4 class="text-theme02 mt-20">Mis integraciones incluyen</h4>
-							<ul class="list-unstyled">
-								<li><i class="fa fa-minus text-theme02"></i> Adaptación del Header.</li>
-								<li><i class="fa fa-minus text-theme02"></i> Adaptación del Footer.</li>
-								<li><i class="fa fa-minus text-theme02"></i> Match de colores y fuentes.</li>
-								<li><i class="fa fa-minus text-theme02"></i> Ajustes en detalles.</li>
-							</ul> -->
-
+							<vcl-list v-if="loadingPage"></vcl-list>
+							<div v-else v-html="pageInfo.content"></div>
 						</div>
 
 						<div class="col-md-6">
@@ -174,6 +159,7 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import { VclList } from 'vue-content-loading';
 import HeroSection from '@/components/shared/HeroSection.vue'
 export default {
 	name:'Integrations',
@@ -189,7 +175,7 @@ export default {
 		]
     },
 	components: {
-		HeroSection
+		HeroSection, VclList
 	},
 	data(){
 		return{
@@ -198,7 +184,7 @@ export default {
 		}
 	},
 	computed: {
-		...mapGetters('pages', ['pageInfo'])
+		...mapGetters('pages', ['pageInfo','loadingPage'])
 	}
 }
 </script>

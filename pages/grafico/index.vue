@@ -9,20 +9,10 @@
 				<article class="well page-content">
 
 					<div class="row">
-						<div class="col-md-6 row-design text-justify" v-html="pageInfo.content">
 
-<!-- 							<p>
-								Proceso impecable&nbsp;para <strong>diseño de&nbsp;logos </strong>atractivos y otros productos con  100% de satisfacción garantizada. Trabajo en estrecha coordinación con el diseño gráfico y diseño web.
-							</p>
-
-							<p>
-								Toda la metodología está obligada a sacar mi mejor rendimiento con una consistencia increíble. Estoy seguro de entregar el mejor producto justo en el primer intento.
-							</p>
-
-							<p>
-								Puedo btener tu aprobación sin ninguna revisión o reelaboración. Sin embargo, doy la bienvenida a cada sugerencia constructiva para mejorar la calidad y finalmente satisfacer las necesidades corporativas de mis clientes.
-							</p> -->
-
+						<div class="col-md-6 row-design text-justify">
+							<vcl-list v-if="loadingPage"></vcl-list>
+ 							<div v-else v-html="pageInfo.content"></div>
 						</div>
 
 						<div class="col-md-6">
@@ -98,6 +88,7 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import { VclList } from 'vue-content-loading';
 import HeroSection from '@/components/shared/HeroSection.vue'
 export default {
 	name:'GraphicDesign',
@@ -113,7 +104,7 @@ export default {
 		]
     },
 	components: {
-		HeroSection
+		HeroSection,VclList
 	},
 	data(){
 		return{
@@ -122,7 +113,7 @@ export default {
 		}
 	},
 	computed: {
-		...mapGetters('pages', ['pageInfo'])
+		...mapGetters('pages', ['pageInfo','loadingPage'])
 	}
 }
 </script>

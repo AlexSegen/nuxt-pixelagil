@@ -8,7 +8,12 @@
 				<article class="well page-content pt-40">
 
 					<div class="row">
-						<div class="col-md-8 col-md-offset-2 text-justify">
+						
+						<div v-if="loadingPage" class="col-md-6">
+							<vcl-list></vcl-list>
+						</div>
+
+						<div v-else class="col-md-8 col-md-offset-2 text-justify">
                             <p><img src="@/assets/img/logo-pixelagil.png" class="img-responsive center-block" alt=""></p>
                             <hr>
 
@@ -37,6 +42,7 @@
 <script>
 import config from '@/config'
 import { mapGetters } from 'vuex'
+import { VclList } from 'vue-content-loading';
 import HeroSection from '@/components/shared/HeroSection.vue'
 export default {
 	name:'Terms',
@@ -52,7 +58,7 @@ export default {
 		]
     },
 	components: {
-		HeroSection
+		HeroSection,VclList
 	},
 	data(){
 		return{
@@ -63,7 +69,7 @@ export default {
 		}
 	},
 	computed: {
-		...mapGetters('pages', ['pageInfo'])
+		...mapGetters('pages', ['pageInfo','loadingPage'])
 	}
 }
 </script>

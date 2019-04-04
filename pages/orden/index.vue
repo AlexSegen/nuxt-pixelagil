@@ -5,16 +5,16 @@
 
 		<div class="container">
 
-            <article class="well page-content">
+		<article class="well page-content">
            
 			<div class="row">
-				<div class="col-md-12 text-justify" v-html="pageInfo.content">
-      
-<!--                         <p>
-                            Para obtener alguno de mis servicios, por favor selecciona el que necesitas, y luego presiona el botón <strong>Agregar</strong> y <strong>repite</strong> (si aplica) como necesites. Una vez terminada tu selección, presiona el botón <strong>Cotizar</strong> para enviarme tu requerimiento. Una vez recibido, te contactaré lo antes posible.
-                        </p>
-                        <p>Recuerda leer los <router-link :to="{ name:'terms' }">Términos de Servicio</router-link> antes de adquirir alguno.</p> -->
-
+				
+				<div class="col-md-6" v-if="loadingPage">
+					<vcl-list ></vcl-list>
+				</div>
+				
+				<div v-else class="col-md-12 text-justify" v-html="pageInfo.content">
+     
 				</div>
 
 				<div class="col-md-8">
@@ -22,6 +22,8 @@
 						<h3 class="title-area">Servicios disponibles</h3>
 
 						<div class="card1">
+							
+						
 							<div class="pmd-tabs pmd-tabs-bg">
 								<ul class="nav nav-tabs nav-justified" role="tablist">
 									<li role="presentation" class="active"><a href="#web" aria-controls="web" role="tab" data-toggle="tab">Diseño Web</a></li>
@@ -31,14 +33,10 @@
 								</ul>
 							</div>
 							<div class="pmd-card-body" id="services">
-								<div v-if="loading"  class="proloader">
-									<div class="looping-rhombuses-spinner">
-										<div class="rhombus"></div>
-										<div class="rhombus"></div>
-										<div class="rhombus"></div>
-									</div>
-								</div>
-								<div class="tab-content">
+								
+								<vcl-table class="mt-10" v-if="loading" ></vcl-table>
+
+								<div v-else class="tab-content">
 									<div role="tabpanel" class="tab-pane active" id="web">
 										<ul class="list-group pmd-list services-list">
 											<li class="list-group-item" v-for="service in webCategory" :key="'web_'+service.id">
@@ -148,32 +146,31 @@
 						</div> <!-- Card services -->
 					</div>
 				</div> <!-- /.col-md-8 -->
-				<div class="col-md-4"> 
+				<div class="col-md-4">  
 					<div class="cart-area">
 						<h3 class="title-area">Nueva cotización</h3>
 						<ShoppingCart/>
 					</div>
 				</div> 
 			</div>
-            </article>
+					
+			</article>
 
 		</div>
 	</div>
 </template>
 
 <script>
-import moment from 'moment';
+import { VclList, VclTable } from 'vue-content-loading';
+import ShoppingCart from '@/components/orders/Cart'
 import orderServices from '@/services/order.services'
 import HeroSection from '@/components/shared/HeroSection.vue'
-import ShoppingCart from '@/components/orders/Cart'
 
 import {mapState, mapGetters, mapActions} from 'vuex'
 
-let now = moment().format('LLLL');
-
 export default {
 	components: {
-		HeroSection, ShoppingCart
+		HeroSection, ShoppingCart, VclList, VclTable
 	},
 	name: 'Orders',
 	metaInfo: {
@@ -193,92 +190,27 @@ export default {
 	data() {
 		return {
 			loading:false,
-			send:false,
-			list:'',
-			cartItems:[],
-			name:'',
-			email:'',
-			order:'',
-			total:'',
-			date:now,
-			services:{},
 			heroTitle:'Ordenar ahora',
 			heroSubtitle:'Con los <span>mejores precios del mercado</span>. Selecciona los servicios que desees'
 		}
 	},
 	computed: {
-      ...mapState({
-        products: state => state.products.items
-      }),
-      ...mapGetters('products', {
-		webCategory: 'webCategory',
-		designCategory: 'designCategory',
-		integrationCategory: 'integrationCategory',
-		otherCategory: 'otherCategory',
-			}),
-		...mapGetters('pages', ['pageInfo']),
-		numCartItems() {
-			return this.cartItems.length;
-		},
-		totalCart(){
-			return this.cartItems.reduce(function(totalCart, item){
-				return totalCart + item.price; 
-			},0);
-		}
-	},
-	filters: {
-
-		removeSpaces: function(value) {
-			return value.replace(/\s/g, '').replace(/[^a-zA-Z #]/g, "").toLowerCase();
-		}	
+		...mapState({
+			products: state => state.products.items
+		}),
+		...mapGetters('products', {
+			webCategory: 'webCategory',
+			designCategory: 'designCategory',
+			integrationCategory: 'integrationCategory',
+			otherCategory: 'otherCategory'
+		}),
+		...mapGetters('pages', ['pageInfo', 'loadingPage'])
 	},
 	methods:{
-      ...mapActions({
-        fetchProducts: 'products/fetchProducts',
-        addProductToCart: 'cart/addProductToCart'
-      }),
-		addItem(service){
-			this.cartItems.push(service);
-			//Add to localstorage browser
-			localStorage.set("cartItems", JSON.stringify(this.cartItems));
-		},
-		removeItem(index) {
-			this.cartItems.splice(index,1);
-            //Update localstorage deleted carItems
-			localStorage.set("cartItems", JSON.stringify(this.cartItems));
-		},
-		removeCart(item) {
-			this.cartItems.splice(item);
-			//Update localstorage deleted carItems
-			localStorage.set("cartItems", JSON.stringify(this.cartItems));
-		},
-		saveOrder(item){
-			let data = {
-				date: this.date,
-				name: this.name,
-				email:this.email,
-				total:this.totalCart,
-				services:this.cartItems,
-			}
-			orderServices.post(data).then(response => {
-				this.send = true;
-				this.name ='';
-				this.email ='';
-				this.cartItems.splice(item);
-				this.localStorage.remove("cartItems");
-				this.errors = [] 
-			}).catch(error => {
-				this.errors= error.response.data
-			})
-
-		},
-		getServices(){
-			this.loading = true
-			productServices.get().then(response => {
-				this.services = response.data
-				this.loading = false
-			});
-		}
+		...mapActions({
+			fetchProducts: 'products/fetchProducts',
+			addProductToCart: 'cart/addProductToCart'
+		})
 	}
 }
 </script>

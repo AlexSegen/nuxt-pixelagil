@@ -8,11 +8,14 @@
 				<article class="page-content">
 
 					<div class="row">
-
-						<div class="col-md-8 col-md-offset-2" v-html="pageInfo.content">
+						<div class="col-md-6" v-if="loadingPage">
+							<vcl-list ></vcl-list>
 						</div>
 
-						<div class="col-md-8 col-md-offset-2 text-center mt-20">
+						<div v-else class="col-md-8 col-md-offset-2" v-html="pageInfo.content">
+						</div>
+
+						<div v-show="!loadingPage" class="col-md-8 col-md-offset-2 text-center mt-20">
 							<ul class="list-inline bold">
 								<li>
 									<i class="fa fa-envelope-o text-theme02"></i> {{ email }}
@@ -28,37 +31,12 @@
 
 						<div class="clearfix"></div>
 
-						<div class="col-md-8 col-md-offset-2">
+						<div v-show="!loadingPage" class="col-md-8 col-md-offset-2">
 							<my-form/>
 						</div>
-						<div class="col-md-5 hide">
-
-							<ul class="list-group pmd-list pmd-card-list">
-								<li class="list-group-item">
-									<i class="material-icons media-left media-middle">email</i>
-									<div class="media-body">
-										<h3 class="list-group-item-heading">{{email}}</h3>
-										<span class="list-group-item-text">Correo de contacto</span>
-									</div>
-								</li>
-								<li class="list-group-item">
-									<i class="material-icons media-left media-middle">chat</i>
-									<div class="media-body">
-										<h3 class="list-group-item-heading">{{skype}}</h3>
-										<span class="list-group-item-text">Skype</span>
-									</div>
-								</li>
-								<li class="list-group-item">
-									<i class="material-icons media-left media-middle">call</i>
-									<div class="media-body">
-										<h3 class="list-group-item-heading">{{phone}}</h3>
-										<span class="list-group-item-text">Teléfono de contacto</span>
-									</div>
-								</li>
-							</ul>
-
-						</div>
+	
 					</div>
+
 				</article>
 			</div>
 		</section>
@@ -67,13 +45,15 @@
 <script>
 import config from '@/config'
 import { mapGetters } from 'vuex'
+import { VclList } from 'vue-content-loading';
 import MyForm from "@/components/contact/MyForm.vue";
 import HeroSection from "@/components/shared/HeroSection.vue";
 
 export default {
   components: {
     MyForm,
-    HeroSection
+	HeroSection,
+	VclList
   },
   data() {
     return {
@@ -85,7 +65,7 @@ export default {
     };
   },
 	computed: {
-		...mapGetters('pages', ['pageInfo'])
+		...mapGetters('pages', ['pageInfo','loadingPage'])
 	}
 };
 </script>
