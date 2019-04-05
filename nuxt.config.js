@@ -32,7 +32,7 @@ module.exports = {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: ['~/plugins/vue-lazy', '~/plugins/vue-bootstrap'],
+  plugins: ['~/plugins/vue-lazy', '~/plugins/vue-bootstrap', '~/plugins/scripts'],
 
   /*
    ** Nuxt.js modules

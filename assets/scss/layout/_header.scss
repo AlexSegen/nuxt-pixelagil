@@ -133,3 +133,141 @@
         animation: floating 3s infinite 0s ease-in-out;
     }
 }
+
+
+/* Nav Pixelagil */
+
+
+.nav-pixelagil {
+  width: 100%;
+  height: 55px;
+  border-radius: 0;
+  position: relative;
+  background: #fff;
+  border: 1px solid #fff;
+  z-index: 10;
+  border-bottom: 1px solid #ddd;
+
+  .nav-toggle {
+    color: #fff;
+    font-size: 12px;
+    position: relative;
+    font-weight: normal;
+    text-align: center;
+    background: $theme;
+    background-color: $theme;
+    box-shadow: none;
+    border: 1px solid #ddd;
+    padding: 15px 5px 15px 10px;
+    display: none;
+    cursor: pointer;
+    &:before {
+        content: "\f0c9";
+        left: -5px;
+        position: relative;
+        font: normal normal normal 14px/1 FontAwesome;
+    }
+
+    &.active {
+      background: $theme-darken;
+      background-color: $theme-darken;
+    }
+  }
+  
+  @media (max-width: 991px) {
+      .container {
+        width: 95%;
+    }
+  }
+
+  .nav-content {
+    position: relative;
+    display: flex;
+    align-items: center;
+
+
+    .nav-brand {
+      float: left;
+      height: auto;
+      max-width: 180px;
+      padding: 4px 5px;
+      overflow: hidden;
+        a {
+          display: block;
+        }
+        img {
+          max-width: 100%;
+          height: auto;
+          display: block;
+        }
+    }
+    .nav-menu {
+      float: right;
+      text-align: right;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      > li {
+        display: inline-block;
+        margin: 0 5px;
+        > a {
+          color: #333;
+          font-weight: 600;
+          display: block;
+          padding: 15px 5px;
+          transition: all ease-in-out .1s;
+          &:hover,
+          &:focus,
+          &.active {
+            color: $theme;
+            text-decoration: none;
+          }
+        }
+      }
+
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  .nav-pixelagil {
+
+    .nav-toggle {
+      float: right;
+      display: inline-block;
+    }
+
+    .container {
+      width: 100%;
+      padding: 0;
+    }
+
+    .nav-content {
+      display: block;
+
+      .nav-menu {
+        width: auto;
+        padding: 55px 10px 10px 35px;
+        background: #fff;
+        text-align: right;
+        height: 100vh;
+        position: absolute;
+        right: 0;
+        top: 0;
+        display: none;
+          &.open {
+            display: block;
+          }
+
+          > li {
+            display: block;
+            > a {
+              display: block;
+            }
+          }
+      }
+    }
+
+  }
+}
