@@ -137,8 +137,11 @@
 
 /* Nav Pixelagil */
 
+body.navbar-open{
+  overflow: hidden;  
+}
 
-.nav-pixelagil {
+.navbar-pixelagil {
   width: 100%;
   height: 55px;
   border-radius: 0;
@@ -147,6 +150,10 @@
   border: 1px solid #fff;
   z-index: 10;
   border-bottom: 1px solid #ddd;
+  
+  .container {
+    margin: 0 auto;
+  }
 
   .nav-toggle {
     color: #fff;
@@ -158,21 +165,32 @@
     background-color: $theme;
     box-shadow: none;
     border: 1px solid #ddd;
-    padding: 15px 5px 15px 10px;
+    padding: 12px 10px 12px 10px;
     display: none;
     cursor: pointer;
     &:before {
-        content: "\f0c9";
-        left: -5px;
-        position: relative;
-        font: normal normal normal 14px/1 FontAwesome;
-    }
-
+      content: "Menu";
+      text-transform: uppercase;
+      position: relative;
+      font: normal normal normal 10px/1 Helvetica;
+  }
     &.active {
       background: $theme-darken;
       background-color: $theme-darken;
     }
+
+    span {
+      border-bottom: 1px solid #ddd;
+      display: block;
+      margin-bottom: 3px;
+
+      &:last-child{
+        margin-bottom: 0;
+      }
+  
+    }
   }
+  
   
   @media (max-width: 991px) {
       .container {
@@ -212,10 +230,12 @@
         display: inline-block;
         margin: 0 5px;
         > a {
-          color: #333;
+          color: $theme;
           font-weight: 600;
           display: block;
+           white-space: nowrap;
           padding: 15px 5px;
+          text-decoration: none;
           transition: all ease-in-out .1s;
           &:hover,
           &:focus,
@@ -231,7 +251,7 @@
 }
 
 @media (max-width: 900px) {
-  .nav-pixelagil {
+  .navbar-pixelagil {
 
     .nav-toggle {
       float: right;
@@ -247,17 +267,18 @@
       display: block;
 
       .nav-menu {
-        width: auto;
-        padding: 55px 10px 10px 35px;
+        width: 0;
+        padding: 55px 0;
         background: #fff;
         text-align: right;
         height: 100vh;
         position: absolute;
+        overflow: hidden;
         right: 0;
-        top: 0;
-        display: none;
+        top: 55px;
+        transition: all ease-in-out .3s;
           &.open {
-            display: block;
+            width: 200px;
           }
 
           > li {

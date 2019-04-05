@@ -1,5 +1,5 @@
 <template>
-    <nav class="nav-pixelagil">
+    <nav class="navbar-pixelagil">
         <div class="container">
             <div class="nav-content">
                 <div class="nav-brand">
@@ -15,7 +15,11 @@
                     <li><router-link :to="{ name: 'contacto' }">Contacto</router-link></li>
                     <li><router-link :to="{ name: 'orden' }">Cotización</router-link></li>
                 </ul>
-                <button class="nav-toggle" id="toggleMenu">Menu</button>
+                <button class="nav-toggle" id="toggleMenu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
             </div>
         </div>
     </nav>
